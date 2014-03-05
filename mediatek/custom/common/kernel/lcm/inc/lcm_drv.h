@@ -511,7 +511,8 @@ typedef struct
 	unsigned int		lcm_int_te_period;
 	
 	unsigned int		lcm_ext_te_monitor;
-	
+	unsigned int		lcm_ext_te_enable;
+
 	unsigned int		noncont_clock;
 	unsigned int		noncont_clock_period;
 	
@@ -527,6 +528,11 @@ typedef struct
     /* common parameters */
     unsigned int width;
     unsigned int height;
+	#ifdef OPPO_R819
+	//yongjun.wu@ProDrv.BL, 2012/12/18, Add for cst must need this value
+	unsigned int hw_width;
+	unsigned int hw_height;
+	#endif
 	unsigned int io_select_mode; //DBI or DPI should select IO mode according to chip spec
     /* particular parameters */
     LCM_DBI_PARAMS dbi;
