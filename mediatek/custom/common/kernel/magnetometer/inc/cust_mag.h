@@ -6,7 +6,15 @@ struct mag_hw {
     int direction;
     int power_id;
     int power_vol;
+    #ifdef OPPO_R819//xiaohua.tian@wxkf.wxBasicDrv.Sensor, add 2013/03/01 to config power for sensor of difference prj
+    int (*power)(struct mag_hw *hw, unsigned int on, char *devname);
+    #endif/*OPPO_R819*/
 };
 
 extern struct mag_hw* get_cust_mag_hw(void);
+extern struct mag_hw* get_cust_mag_hw_akm8975(void);
+extern struct mag_hw* get_cust_mag_hw_mmc328xma(void);
+extern struct mag_hw* get_cust_mag_hw_mmc3461(void);
+extern struct mag_hw* get_cust_mag_hw_yas533(void); 
+
 #endif 

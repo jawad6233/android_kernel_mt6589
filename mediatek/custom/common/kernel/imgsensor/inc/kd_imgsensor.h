@@ -186,6 +186,10 @@
 #define A5141MIPI_SENSOR_ID                     0x4800
 #define GC0339_SENSOR_ID				0xc8
 #define IMX111_SENSOR_ID                        0x0111
+#ifdef OPPO_R819
+//LiuBin@MtkCamera, 2013/01/30, Add for MS2R yuv sensor
+#define MS2R_SENSOR_ID                                                 (0x0F16)
+#endif /* OPPO_R819 */
 
 /* CAMERA DRIVER NAME */
 #define CAMERA_HW_DEVNAME            "kd_camera_hw"
@@ -246,6 +250,10 @@
 #define SENSOR_DRVNAME_OV9740_MIPI_YUV     "ov9740mipiyuv"
 #define SENSOR_DRVNAME_GC0339_RAW     "gc0339raw"
 #define SENSOR_DRVNAME_imx111_MIPI_RAW	"imx111mipiraw"
+#ifdef OPPO_R819
+//LiuBin@MtkCamera, 2013/01/30, Add for MS2R yuv sensor
+#define SENSOR_DRVNAME_MS2R_YUV                        "ms2ryuv"
+#endif /* OPPO_R819 */
 /*******************************************************************************
 *
 ********************************************************************************/

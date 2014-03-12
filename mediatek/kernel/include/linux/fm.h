@@ -60,10 +60,15 @@ enum{
 #ifdef MTK_FM_50KHZ_SUPPORT
 //*****************************************************************************************
 //***********************************FM config for customer ***********************************
-//*****************************************************************************************
-//RX
-#define FMR_RSSI_TH_LONG    0x02D8      //FM radio long antenna RSSI threshold(-4dBuV)
-#define FMR_RSSI_TH_SHORT   0x02D8      //FM radio short antenna RSSI threshold(-4dBuV)
+//*****************************************************************************************//RX
+#ifndef OPPO_R819      /*hanqing.wang@wxkf.wxBasicDriver.Audio,modify FM auto stop RSSI*/
+    		#define FMR_RSSI_TH_LONG    0x02D8      //FM radio long antenna RSSI threshold(-4dBuV)
+		#define FMR_RSSI_TH_SHORT   0x02D8      //FM radio short antenna RSSI threshold(-4dBuV)
+#else 
+    		#define FMR_RSSI_TH_LONG    0x0338      //FM radio long antenna RSSI threshold(11.375dBuV)
+		#define FMR_RSSI_TH_SHORT   0x02E0      //FM radio short antenna RSSI threshold(-1dBuV)
+#endif         /*hanqing.wang@wxkf.wxBasicDriver.Audio,modify FM auto stop RSSI*/
+
 #define FMR_CQI_TH          0x00E9      //FM radio Channel quality indicator threshold(0x0000~0x00FF)
 #define FMR_SEEK_SPACE      5           //FM radio seek space,5:50KHZ; 1:100KHZ; 2:200KHZ
 #define FMR_SCAN_CH_SIZE    80          //FM radio scan max channel size
@@ -79,8 +84,7 @@ enum{
 
 //*****************************************************************************************
 //***********************************FM config for engineer ***********************************
-//*****************************************************************************************
-//RX
+//*****************************************************************************************//RX
 #define FMR_MR_TH           0x01BD      //FM radio MR threshold
 #define ADDR_SCAN_TH        0xE0        //scan thrshold register
 #define ADDR_CQI_TH         0xE1        //scan CQI register
@@ -88,14 +92,13 @@ enum{
 //TX
 #define FMTX_SCAN_HOLE_LOW  9230         //92.30MHz~95.40MHz should not show to user
 #define FMTX_SCAN_HOLE_HIGH 9540         //92.30MHz~95.40MHz should not show to user
-//*****************************************************************************************
+//*****************************************************************************************//
 
 #else
 
 //*****************************************************************************************
 //***********************************FM config for customer ***********************************
-//*****************************************************************************************
-//RX
+//*****************************************************************************************//RX
 #define FMR_RSSI_TH_LONG    0x0301      //FM radio long antenna RSSI threshold(11.375dBuV)
 #define FMR_RSSI_TH_SHORT   0x02E0      //FM radio short antenna RSSI threshold(-1dBuV)
 #define FMR_CQI_TH          0x00E9      //FM radio Channel quality indicator threshold(0x0000~0x00FF)
@@ -114,8 +117,7 @@ enum{
 
 //*****************************************************************************************
 //***********************************FM config for engineer ***********************************
-//*****************************************************************************************
-//RX
+//*****************************************************************************************//RX
 #define FMR_MR_TH           0x01BD      //FM radio MR threshold
 #define ADDR_SCAN_TH        0xE0        //scan thrshold register
 #define ADDR_CQI_TH         0xE1        //scan CQI register
@@ -123,7 +125,7 @@ enum{
 //TX
 #define FMTX_SCAN_HOLE_LOW  923         //92.3MHz~95.4MHz should not show to user
 #define FMTX_SCAN_HOLE_HIGH 954         //92.3MHz~95.4MHz should not show to user
-//*****************************************************************************************
+//*****************************************************************************************//
 
 #endif //MTK_FM_50KHZ_SUPPORT
 

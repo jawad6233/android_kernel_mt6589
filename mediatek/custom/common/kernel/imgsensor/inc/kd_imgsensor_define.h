@@ -251,6 +251,27 @@ typedef enum
   SENSOR_FEATURE_GET_AE_AWB_LOCK_INFO,
   SENSOR_FEATURE_GET_AE_FLASHLIGHT_INFO,
   SENSOR_FEATURE_AUTOTEST_CMD,
+  #ifdef OPPO_R819
+  //feng.hu@mtk camera team modified for ms2r continuous af
+  SENSOR_FEATURE_DO_YUV_CAF,
+  //LiuBin@MtkCamera, 2012/10/23, Add for get MS2R brightness to control CAF
+  SENSOR_FEATURE_GET_BRIGHTNESS,
+  SENSOR_FEATURE_GET_WB,
+  //LiuBin@MtkCamera, 2012/11/28, Add for MS2R yuv sensor flash capture sync
+  SENSOR_FEATURE_GET_ISP_STATUS,
+  //ZhangZhengrong@MtkCamera, 2013/03/19, Add for scene detect
+  SENSOR_FEATURE_GET_WDV,
+  SENSOR_FEATURE_GET_AE_GAIN_SHUTTER,
+  SENSOR_FEATURE_GET_AF_POSITION,
+  //LiuBin@MtkCamera, 2013/02/20, Add for set ISP debug flag
+  SENSOR_FEATURE_SET_ISP_DEBUG_FLAG,
+  #ifdef QUICK_CAPTURE
+  //lanhe@MTKCamera,2013/03/14 ,add for silent preview sensor
+  SENSOR_FEATURE_SILNET_PREVIEW,
+  #endif /* QUICK_CAPTURE */
+  //LiuBin@MtkCamera, 2013/04/23, Add for set isp to capture
+  SENSOR_FEATURE_SET_ISP_CAPTURE,
+  #endif /* OPPO_R819 */
   SENSOR_FEATURE_MAX
 } ACDK_SENSOR_FEATURE_ENUM;
 
@@ -758,6 +779,17 @@ typedef struct
 {
     MUINT32 drvIndex[KDIMGSENSOR_MAX_INVOKE_DRIVERS]; /* max 2 driver sumultaneously */
 } SENSOR_DRIVER_INDEX_STRUCT, *PSENSOR_DRIVER_INDEX_STRUCT;
+
+#ifdef OPPO_R819
+//LiuBin@MtkCamera, 2013/03/05, Add for isp debug info
+typedef struct
+{
+       MINT32 ISPTuningEnable;
+       MINT32 ISPRawDataEnable;
+       MINT32 ISPDebugEnable;
+}ISP_DEBUG_INFO;
+#endif /* OPPO_R819 */
+
 
 //hardcode by GPIO module, should be sync with.(cust_gpio_usage.h)
 #define GPIO_CAMERA_INVALID 0xFF

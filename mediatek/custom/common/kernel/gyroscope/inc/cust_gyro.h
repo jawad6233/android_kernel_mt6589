@@ -12,4 +12,7 @@ struct gyro_hw {
 };
 
 extern struct gyro_hw* get_cust_gyro_hw(void);
+extern struct gyro_hw* get_cust_gyro_hw_mpu6050c(void);
+extern struct gyro_hw* get_cust_gyro_hw_l3gd20(void);
+
 #endif 
