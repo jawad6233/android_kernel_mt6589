@@ -2,10 +2,10 @@
 export CROSS_COMPILE=/home/dr-shadow/faea/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-
 
 #Target Product
-export TARGET_PRODUCT=e960
+export TARGET_PRODUCT=OPPO89W_13025
 
 #Create directory for your device
-mkdir -p out/e960/
+mkdir -p out/OPPO89W_13025/
 
 #Kernel part
 make mediatek-configs

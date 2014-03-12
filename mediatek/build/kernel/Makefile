@@ -34,7 +34,7 @@
 
 
 include mediatek/build/Makefile
-$(call codebase-path,kernel,.,mt6589,e960)
+$(call codebase-path,kernel,.,mt6589,$TARGET_PRODUCT)
 #$(call relative-include,common.mk)
 include mediatek/build/kernel/common.mk
 MODULE_PREFIX_KERNEL := CUSTOM_KERNEL_
